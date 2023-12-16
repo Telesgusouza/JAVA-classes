@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		double value1, value2, operetion;
+
+		value1 = sc.nextDouble();
+		value2 = sc.nextDouble();
+		
+		operetion = value1 + value2;
+		
+		System.out.println("Saida: " + operetion);
+
+		sc.close();
+
+	}
+
+}

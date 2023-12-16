@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		double pi = 3.14159;
+		double value1, operetion;
+
+		value1 = sc.nextDouble();
+		
+		operetion = pi * Math.pow(value1, 2);
+		
+		System.out.println("Saida: " + operetion);
+
+		sc.close();
+
+	}
+
+}
