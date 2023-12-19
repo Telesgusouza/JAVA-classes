@@ -12,9 +12,9 @@ public class Program {
 		Order order = new Order(1080, new Date(), OrderStatus.PADDING_PAYMENT);
 		
 		OrderStatus os1 = OrderStatus.DEVILERED;
-		OrderStatus os2 = OrderStatus.valueOf("DEVILERED");
+		OrderStatus ps2 = OrderStatus.valueOf("DEVILERED");
 		
-		System.out.println(os2);
+		System.out.println(order);
 	}
 
 }
