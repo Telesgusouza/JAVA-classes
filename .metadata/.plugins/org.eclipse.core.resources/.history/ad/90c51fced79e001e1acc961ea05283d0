@@ -35,7 +35,6 @@ public class Program {
 		Worker worker = new Worker(workerName, WorkerLevel.valueOf(workerLevel), baseSalary,
 				new Department(departmentName));
 
-		System.out.print("How many contracts to this worker? ");
 		int n = sc.nextInt();
 
 		for (int i = 1; i <= n; i++) {

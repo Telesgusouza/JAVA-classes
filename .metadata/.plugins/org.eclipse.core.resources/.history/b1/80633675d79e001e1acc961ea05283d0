@@ -22,7 +22,7 @@ public class Program {
 		System.out.print("Enter department's name:  ");
 		String departmentName = sc.nextLine();
 
-		System.out.println("Enter work data: ");
+		System.out.print("Enter work data: ");
 		System.out.print("Name: ");
 		String workerName = sc.nextLine();
 
@@ -35,7 +35,6 @@ public class Program {
 		Worker worker = new Worker(workerName, WorkerLevel.valueOf(workerLevel), baseSalary,
 				new Department(departmentName));
 
-		System.out.print("How many contracts to this worker? ");
 		int n = sc.nextInt();
 
 		for (int i = 1; i <= n; i++) {
