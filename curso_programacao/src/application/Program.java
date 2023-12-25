@@ -1,36 +1,60 @@
 package application;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
-import entities.Comment;
-import entities.Post;
+import entities.enums.OrderStatus;
 
 public class Program {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Scanner sc = new Scanner(System.in);
+		
+		 LocalDateTime dataMoment = LocalDateTime.now();
+	        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-		Comment c1 = new Comment("Have a nice trip!");
-		Comment c2 = new Comment("Wow that's awesome!");
-		Post p1 = new Post(sdf.parse("21/06/2018 13:05:44"), "Traveling to new Zealand",
-				"I'm goig to visit this wonderful country!", 12);
-
-		p1.addComment(c1);
-		p1.addComment(c2);
-
-		Comment c3 = new Comment("Good night");
-		Comment c4 = new Comment("May the force be with you");
-		Post p2 = new Post(sdf.parse("28/07/2018 23:14:19"), "Good night guys", "See you tomorrow", 5);
-
-		p2.addComment(c1);
-		p2.addComment(c2);
-
-		System.out.println(p1);
+		
+		System.out.println("Enter client data: ");
+		
+		System.out.print("Name: ");
+		String name = sc.nextLine();
+		System.out.print("Email: ");
+		String email = sc.nextLine();
+		System.out.print("Birth date (DD/MM/YYYY): ");
+		String date = sc.nextLine();
+		
+		System.out.println("Enter order data: ");
+		System.out.print("Status: ");
+		String status = sc.nextLine();
+		
+		System.out.print("How many items to this order? ");
+		int quantOfItems = sc.nextInt();
+		
+		
+		for(int i = 1; i <= quantOfItems; i++ ) {
+			System.out.println("Enter #" + i + " item data: ");
+			System.out.print("Product name: ");
+			String nameProduct = sc.next();
+			
+			System.out.println("Product price: ");
+			Double priceItem = sc.nextDouble();
+			
+			System.out.println("Quantity");
+			int quantity = sc.nextInt();
+			
+		}
+		
 		System.out.println();
-		System.out.println(p2);
-
+		System.out.print("ORDER SUMMARY: ");
+		System.out.println("Order moment: " + dataMoment.format(dateFormat));
+		System.out.println("Order statud: " + status);
+		System.out.println("Client: " + name + "(" + date + ") - " + email);
+		
+		sc.close();
+		
 	}
 
 }
