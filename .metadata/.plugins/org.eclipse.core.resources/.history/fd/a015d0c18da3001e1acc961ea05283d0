@@ -42,7 +42,6 @@ public class Program {
 				employees.add(i - 1, employee);
 			} else if(outsourced == 'n') {
 				Employee employee = new Employee(name, workedHours, valuePerHour);
-				employees.add(i - 1, employee);
 			}
 			
 			// Employee employee = new Employee(name, workedHours, valuePerHour);

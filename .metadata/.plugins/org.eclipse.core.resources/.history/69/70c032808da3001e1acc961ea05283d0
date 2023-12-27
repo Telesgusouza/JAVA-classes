@@ -38,11 +38,10 @@ public class Program {
 				System.out.print("Adicional de custo: ");
 				Double additionalCharge = sc.nextDouble();
 				
-				OutsourceEmployee employee = new OutsourceEmployee(name, workedHours, valuePerHour, additionalCharge);
+				Employee employee = new OutsourceEmployee(name, workedHours, valuePerHour, additionalCharge);
 				employees.add(i - 1, employee);
 			} else if(outsourced == 'n') {
 				Employee employee = new Employee(name, workedHours, valuePerHour);
-				employees.add(i - 1, employee);
 			}
 			
 			// Employee employee = new Employee(name, workedHours, valuePerHour);

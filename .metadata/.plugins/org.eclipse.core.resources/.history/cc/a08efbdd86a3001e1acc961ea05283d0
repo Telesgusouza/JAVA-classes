@@ -1,0 +1,33 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import entitites.Employee;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		// List<Employee> employees = ArrayList<Employee>();
+		
+		System.out.print("Insira o número de funcionários: ");
+		Integer countEmployee = sc.nextInt();
+		
+		for (int i = 1; i <= countEmployee; i++) {
+			
+			System.out.println("Dados do funcionário #"+ i +": ");
+			System.out.print("Terceirizado (s/n): ");
+			char outsourced = sc.next().charAt(0);
+			
+			System.out.print("Nome: ");
+			String name = sc.next();
+		}
+		
+		sc.close();
+	}
+
+}
