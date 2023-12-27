@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.ImportedProduct;
 import entities.Product;
-import entities.UsedProduct;
 
 
 public class Program {
@@ -44,28 +42,9 @@ public class Program {
 			System.out.print("Price: ");
 			Double price = sc.nextDouble();
 			
-			if(productStatus == 'u') {
-				
-				System.out.print("Manufacture date (DD/MM/YYYY): ");
-				String date = sc.next();
-				list.add(new UsedProduct(name, price, date));
-				
-			} else if(productStatus == 'i') {
-				
-				System.out.print("Customs fee: ");
-				Double customFee = sc.nextDouble();
-				list.add(new ImportedProduct(name, price, customFee));
-				
-			} else if (productStatus == 'c') {
-				list.add(new Product(name, price));
-			}
+			System.out.print("");
 		}
 		
-		System.out.println();
-		System.out.println("PRICE TAGS: ");
-		for (Product i : list) {
-			System.out.println(i.priceTag());
-		}
 		
 		sc.close();
 	}
