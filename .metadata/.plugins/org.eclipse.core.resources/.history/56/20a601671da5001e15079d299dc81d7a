@@ -22,7 +22,7 @@ public class Program {
 		
 		List<Shape> list = new ArrayList<Shape>();
 		
-		for (int i = 1; i <= n; i++) {
+		for (let i = 1; i <= n; i++) {
 			System.out.println("Shape #" + i + " data: ");
 			System.out.print("Rectangle or Circle (e/c)? ");
 			char ch = sc.next().charAt(0);
