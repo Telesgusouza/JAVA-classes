@@ -1,0 +1,15 @@
+package model.exceptions;
+
+public class DomainException extends Exception {
+	private static final long serialVersionUID = 3303870181677866627L;
+	/*
+	 o expetion é um serealize isso é ele precisa de um numero de versão, clicando na lupa e escolhendo que ele crie esse numero
+	 ele dara essa variavl
+	 */
+	
+	
+	// permite passar a mensagem de error
+	public DomainException(String msg) {
+		super(msg);
+	}
+}

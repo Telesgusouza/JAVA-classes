@@ -27,10 +27,8 @@ public class Program {
 			
 			Account account = new Account(numberAccount, holder, initialBalance, withdrawLimit);
 			
-			System.out.println();
 			System.out.println("Entre com o valor de saque: ");
 			Double withdraw = sc.nextDouble();
-			account.withdrawAccount(withdraw);
 			
 			System.out.println("restannte na conta: " + account.getInitialBalance());
 				
