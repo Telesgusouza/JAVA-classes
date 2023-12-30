@@ -1,7 +1,6 @@
 package model.entities;
 
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -39,20 +38,14 @@ public class Reservation {
 	public long duration() {
 		long diff = checkOut.getTime() - checkIn.getTime();
 		System.out.println("ATENÇÃO");
-		System.out.println(Duration.between(checkIn.atStartOfDay(), checkOut.atStartOfDay()));
+		System.out.println(TimeUnit.DAYS.convert(diff, TimeUnit.MICROSECONDS));
 		System.out.println("ATENÇÃO");
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MICROSECONDS);
 	}
 	
 	/*
 	 
-	 queria mostrar a diferença de dias entre duas datas porém ele retorna 0
-	
-	 public long duration() {
-		long diff = checkOut.getTime() - checkIn.getTime();
-		return TimeUnit.DAYS.convert(diff, TimeUnit.MICROSECONDS);
-	}
-	 
+	 queria mostrar a diferença de dias entre duas datas porém ele mostra no console 0
 	 
 	 */
 	
