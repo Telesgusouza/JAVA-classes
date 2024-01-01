@@ -9,10 +9,8 @@ public class Program {
 	public static void main(String[] args) {
 
 		// acesso ao arquivo e ao caminho dele
-		// File file = new File("D:\\PROGRAMACAO\\ino.txt");
-		File file = new File("D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\in.txt");
+		File file = new File("D:\\PROGRAMACAO\\ino.txt");
 		Scanner sc = null;
-		
 		try {
 			sc = new Scanner(file);
 
