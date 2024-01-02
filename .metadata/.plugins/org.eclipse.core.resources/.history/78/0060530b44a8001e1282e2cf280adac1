@@ -1,0 +1,38 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		/*
+		 * 
+		 * bloco try-with-resources uma maneira mais fácil de abrir esse arquivos
+		 * 
+		 */
+
+		// D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\in.txt
+
+		String path = "D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\in.txt";
+
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+
+			// lera uma linha do meu arquivo, se n ouver linhar retorna null
+			String line = br.readLine();
+
+			while (line != null) {
+				System.out.println(line);
+				// passar para a próxima linha
+				line = br.readLine();
+			}
+
+		} catch (IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+
+	}
+
+}

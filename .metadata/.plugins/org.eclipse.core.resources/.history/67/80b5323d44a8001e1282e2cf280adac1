@@ -1,0 +1,40 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		/*
+		 * 
+		 * FileWrite e BufferedWriter
+		 * 
+		 * Criar/Recriar (criar a partir do zero): new FileWriter(path)
+		 * Acrescenta ao arquivo já existente: new FilerWriter(path, true)
+		 * 
+		 */
+
+		// D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\in.txt
+
+		String[] lines = new String[] {"Good morning" , "Good afternoon", "Good night"};
+		String path = "D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\out.txt";
+		
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+			for (String line : lines) {
+				// escreve no arquivo
+				bw.write(line);
+				// da a quebra de linha
+				bw.newLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

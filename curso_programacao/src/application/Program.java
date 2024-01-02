@@ -1,56 +1,47 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
+
+import entities.ItemCar;
 
 public class Program {
 
 	public static void main(String[] args) {
 
-		/*
-		 * 
-		 * FileRead (Stream de leitura de caracteres a partir de arquivos)
-		 * 
-		 * BufferedReader (mais rápido)
-		 * 
-		 * 
-		 */
+		// D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\listitems.txt
+		// \\summary.txt
 
-		// D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\in.txt
+		File path = new File("D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\listitems.txt");
 
-		String path = "D:\\PROGRAMACAO\\ProgramcaoNoWindows\\aula_java\\in.txt";
-		FileReader fr = null;
-		BufferedReader br = null;
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
-		try {
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
+			boolean pathSummary = new File(path.getParent() + "\\out").mkdir();
+			File fileSummary = new File(path.getParent() + "\\out\\summary.txt");
 
-			// lera uma linha do meu arquivo, se n ouver linhar retorna null
-			String line = br.readLine();
+			try (BufferedWriter bw = new BufferedWriter(
+					new FileWriter(new File(path.getParent() + "\\out\\summary.txt"), true))) {
+				String line = br.readLine();
 
-			while (line != null) {
-				System.out.println(line);
-				// passar para a próxima linha
-				line = br.readLine();
+				while (line != null) {
+					ItemCar itemcar = new ItemCar(line.split(",")[0], Double.parseDouble(line.split(",")[1]),
+							Integer.parseInt(line.split(",")[2]));
+					bw.write(itemcar.toString());
+					bw.newLine();
+					line = br.readLine();
+				}
+
+			} catch (IOException e) {
+				System.out.println("Error: " + e.getMessage());
 			}
 
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
-		} finally {
-			// fechar a leitura de arquivos
-			try {
-				if (br != null) {
-					br.close();
-				}
-				if (fr != null) {
-					fr.close();
-				}
-			} catch (IOException e) {
-				// ver o erro
-				e.printStackTrace();
-			}
 		}
 	}
 
