@@ -41,13 +41,6 @@ public class Program {
 		double pricePerDay = sc.nextDouble();
 
 		RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
-		
-		/*
-		 
-		 25/06/2018 10:30
-		 27/06/2018 11:40
-		 
-		 */
 
 		rentalService.processInvoice(cr);
 
