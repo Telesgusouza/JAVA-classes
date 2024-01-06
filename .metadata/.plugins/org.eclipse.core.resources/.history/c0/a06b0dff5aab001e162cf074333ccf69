@@ -1,0 +1,9 @@
+package model.entities;
+
+import java.util.Date;
+
+public interface Payment {
+
+	int paymentSlip(double value, int months, Date date);
+	
+}

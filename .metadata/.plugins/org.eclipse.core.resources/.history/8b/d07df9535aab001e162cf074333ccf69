@@ -1,0 +1,87 @@
+package application;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.Scanner;
+
+/*
+ 
+ por parcela 1% mais 2% nos pagamentos das parcelas
+ numero de contratos, quantidade de meses, gerar as parcelas com as datas
+ 
+ */
+
+/*
+ 
+ no meu projeto java estou enfrentando o seguite erro quando tento pegar os dados de data
+ no console "Data (dd/MM/yyyy): 25/09/2002
+Exception in thread "main" java.time.format.DateTimeParseException: Text '25/09/2002' could not be parsed: Unable to obtain LocalDateTime from TemporalAccessor: {},ISO resolved to 2002-09-25 of type java.time.format.Parsed
+	at java.base/java.time.format.DateTimeFormatter.createError(DateTimeFormatter.java:2023)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:1958)
+	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:494)
+	at application.Program.main(Program.java:29)
+Caused by: java.time.DateTimeException: Unable to obtain LocalDateTime from TemporalAccessor: {},ISO resolved to 2002-09-25 of type java.time.format.Parsed
+	at java.base/java.time.LocalDateTime.from(LocalDateTime.java:463)
+	at java.base/java.time.format.Parsed.query(Parsed.java:241)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:1954)
+	... 2 more
+Caused by: java.time.DateTimeException: Unable to obtain LocalTime from TemporalAccessor: {},ISO resolved to 2002-09-25 of type java.time.format.Parsed
+	at java.base/java.time.LocalTime.from(LocalTime.java:433)
+	at java.base/java.time.LocalDateTime.from(LocalDateTime.java:459)
+	... 4 more
+"
+ 
+ package application;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		System.out.print("Data (dd/MM/yyyy): ");
+		LocalDateTime start = LocalDateTime.parse(sc.next(), fmt);
+		
+
+		sc.close();
+
+	}
+
+}
+
+ 
+ */
+
+public class Program {
+
+	public static void main(String[] args) {
+        
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		// System.out.println("Entre com os dados do contrato");
+		// System.out.print("Numero: ");
+		// int number = sc.nextInt();
+		
+		System.out.print("Data (dd/MM/yyyy): ");
+		LocalDate start = LocalDate.parse(sc.next(), fmt);
+		
+
+		sc.close();
+
+	}
+
+}

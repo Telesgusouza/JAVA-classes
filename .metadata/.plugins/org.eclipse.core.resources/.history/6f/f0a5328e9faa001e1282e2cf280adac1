@@ -1,0 +1,25 @@
+package model.entities;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Paypal implements Payment {
+
+	private Integer numberOfInstallments;
+
+	@Override
+	public int paymentSlip(double value, int months, Date date) {
+		
+		double installmentValue = value / months;
+		double porcent = installmentValue / 100;
+		List<Contract> paymentSlip = new ArrayList<Contract>();
+		
+		for (int i = 1; i <= months; i++) {
+			double installmentFee = installmentValue + (installmentValue / 100 * i) + (installmentValue / 50);
+		}
+		
+		return 0;
+	}
+	
+}

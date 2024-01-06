@@ -1,0 +1,42 @@
+package application;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.Scanner;
+
+/*
+ 
+ por parcela 1% mais 2% nos pagamentos das parcelas
+ numero de contratos, quantidade de meses, gerar as parcelas com as datas
+ 
+ */
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+		System.out.println("Entre com os dados do contrato");
+		System.out.print("Numero: ");
+		int number = sc.nextInt();
+
+		System.out.print("Data (dd/MM/yyyy): ");
+		LocalDate start = LocalDate.parse(sc.next(), fmt);
+		
+		System.out.print("Valor do contrato: ");
+		double contractValue = sc.nextDouble();
+		
+		System.out.print("Entre com o numero de parcelas: ");
+		int installments = sc.nextInt();
+
+		sc.close();
+
+	}
+
+}

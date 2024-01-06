@@ -1,0 +1,29 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+/*
+ 
+ por parcela 1% mais 2% nos pagamentos das parcelas
+ numero de contratos, quantidade de meses, gerar as parcelas com as datas
+ 
+ */
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		double value = 200.0;
+		double monthlyFee = value + (value / 100);
+		
+		System.out.println("valor: " + monthlyFee);
+
+		sc.close();
+
+	}
+
+}
