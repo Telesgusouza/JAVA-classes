@@ -44,13 +44,9 @@ public class Program {
 				
 				line = br.readLine();
 			}
-		
-			System.out.println();
+			
 			System.out.println("Votos: ");
-		
-			for (String i : setList) {
-				System.out.println(i + ": " + cookies.get(i));
-			}
+			System.out.println(cookies);
 			
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());

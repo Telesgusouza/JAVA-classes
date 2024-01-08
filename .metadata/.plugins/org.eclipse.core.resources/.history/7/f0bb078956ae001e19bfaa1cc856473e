@@ -3,11 +3,8 @@ package application;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.TreeMap;
 
 public class Program {
@@ -18,9 +15,16 @@ public class Program {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Set<String> setList = new HashSet<String>();
 		Map<String, Integer> cookies = new TreeMap<>();
-	
+		
+		cookies.put("Maria", 45);
+		cookies.put("João", 45);
+		cookies.put("Carlos", 45);
+		cookies.put("Alberto", 45);
+		
+		System.out.print(cookies);
+		
+		/*
 		System.out.print("Entre com o caminho do arquivo: ");
 		String path = sc.nextLine();
 		
@@ -29,33 +33,13 @@ public class Program {
 			String line = br.readLine();
 			
 			while (line != null) {
-				String[] field = line.split(",");
-				
-				setList.add(field[0]);
-				
-				if(cookies.containsKey(field[0])) {
-					
-					int valueField = cookies.get(field[0]);
-					cookies.put(field[0], Integer.parseInt(field[1]) + valueField);
-					
-				} else {
-					cookies.put(field[0], Integer.parseInt(field[1]));
-				}
-				
 				line = br.readLine();
-			}
-		
-			System.out.println();
-			System.out.println("Votos: ");
-		
-			for (String i : setList) {
-				System.out.println(i + ": " + cookies.get(i));
 			}
 			
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		
+		*/
 		sc.close();
 	}
 
