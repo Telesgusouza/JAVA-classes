@@ -9,41 +9,48 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+import entities.Course;
 import entitites.LogEntry;
 
 public class Program {
 
 	public static void main(String[] args) {
 		
-		// D:\PROGRAMACAO\doc.txt
-
 		Scanner sc = new Scanner(System.in);
-
-		System.out.print("Enter file full path: ");
-		String path = sc.nextLine();
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-			
-			Set<LogEntry> set = new HashSet<>();
-			
-			String line = br.readLine();
-			while (line != null) {
-				
-				String[] fields = line.split(" ");
-				String userName = fields[0];
-				Date moment = Date.from(Instant.parse(fields[1]));
-				set.add(new LogEntry(userName, moment));
-				
-				line = br.readLine();
-			}
-			System.out.println("Total users: " + set.size());
-			
-		} catch (IOException e) {
-			System.out.println("Error: " + e.getMessage());
+		Set<Integer> setList = new HashSet<Integer>();
+		
+		System.out.print("Quantos alunos por curso A? ");
+		int amountStudentsCourseA = sc.nextInt();
+		Course courseA = new Course();
+		
+		for (int i = 1; i <= amountStudentsCourseA; i++) {
+			courseA.addStudents(sc.nextInt());
 		}
 		
+		System.out.print("Quantos alunos por curso B? ");
+		int amountStudentsCourseB = sc.nextInt();
+		Course courseB = new Course();
+		
+		for (int i = 1; i <= amountStudentsCourseB; i++) {
+			courseB.addStudents(sc.nextInt());
+		}
+		
+		System.out.print("Quantos alunos por curso C? ");
+		int amountStudentsCourseC = sc.nextInt();
+		Course courseC = new Course();
+		
+		for (int i = 1; i <= amountStudentsCourseC; i++) {
+			courseC.addStudents(sc.nextInt());
+		}
+		
+		setList.addAll(courseA.getListStudents());
+		setList.addAll(courseB.getListStudents());
+		setList.addAll(courseC.getListStudents());
+		
+		System.out.println("Total students: " + setList.size());
+		
 		sc.close();
-
 	}
 
 }

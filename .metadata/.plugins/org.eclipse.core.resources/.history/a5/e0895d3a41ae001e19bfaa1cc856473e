@@ -1,0 +1,34 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.Instant;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+import entities.Course;
+import entitites.LogEntry;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Quantos alunos por curso A? ");
+		int amountStudentsCourseA = sc.nextInt();
+		Course courseA = new Course();
+		
+		for (int i = 1; i <= amountStudentsCourseA; i++) {
+			courseA.addStudents(sc.nextInt());
+		}
+		
+		System.out.println(courseA.getListStudents());
+		
+		sc.close();
+	}
+
+}
