@@ -1,0 +1,21 @@
+package entities;
+
+
+public class AbstractShape<T extends Comparable<? super T>> {
+
+
+	private T Color;
+
+	public AbstractShape(T color) {
+		super();
+		Color = color;
+	}
+
+	public T getColor() {
+		return Color;
+	}
+
+	public void setColor(T color) {
+		this.Color = color;
+	}
+}

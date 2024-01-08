@@ -1,57 +1,47 @@
 package application;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.util.Locale;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.Instant;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
-import entities.Contract;
-import entities.Installment;
-import services.ContractService;
-import services.PaypalService;
-
-
-/*
- 
- por parcela 1% mais 2% nos pagamentos das parcelas
- numero de contratos, quantidade de meses, gerar as parcelas com as datas
- 
- */
+import entitites.LogEntry;
 
 public class Program {
 
 	public static void main(String[] args) {
+		
+		// D:\PROGRAMACAO\doc.txt
 
-		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-		System.out.println("Entre com os dados do contrato");
-		System.out.print("Numero: ");
-		int number = sc.nextInt();
-
-		System.out.print("Data (dd/MM/yyyy): ");
-		LocalDate date = LocalDate.parse(sc.next(), fmt);
+		System.out.print("Enter file full path: ");
+		String path = sc.nextLine();
 		
-		System.out.print("Valor do contrato: ");
-		double totalValue = sc.nextDouble();
-		
-		Contract obj = new entities.Contract(number, date, totalValue);
-		
-		System.out.print("Entre com o numero de parcelas: ");
-		int n = sc.nextInt();
-		
-		ContractService contractService = new ContractService(new PaypalService());
-		contractService.processContract(obj, n);
-		
-		System.out.println("Parcelas");
-		for (Installment Installment : obj.getInstallments()) {
-			System.out.println(Installment);
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+			
+			Set<LogEntry> set = new HashSet<>();
+			
+			String line = br.readLine();
+			while (line != null) {
+				
+				String[] fields = line.split(" ");
+				String userName = fields[0];
+				Date moment = Date.from(Instant.parse(fields[1]));
+				set.add(new LogEntry(userName, moment));
+				
+				line = br.readLine();
+			}
+			System.out.println("Total users: " + set.size());
+			
+		} catch (IOException e) {
+			System.out.println("Error: " + e.getMessage());
 		}
-
+		
 		sc.close();
 
 	}

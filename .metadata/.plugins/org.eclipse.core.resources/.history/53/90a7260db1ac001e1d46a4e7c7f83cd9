@@ -1,0 +1,10 @@
+package entities;
+
+public interface OnlinePaymentService {
+	
+	// primeira taxa de 1%
+	double paymentFee(double amount);
+	// segunda taca de 2%
+	double interest(double amount, int months);
+
+}

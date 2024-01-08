@@ -1,0 +1,30 @@
+package application;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.Locale;
+import java.util.Scanner;
+
+
+/*
+ 
+ por parcela 1% mais 2% nos pagamentos das parcelas
+ numero de contratos, quantidade de meses, gerar as parcelas com as datas
+ 
+ */
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+
+		sc.close();
+
+	}
+
+}
