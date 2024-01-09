@@ -39,22 +39,17 @@ public class Program {
 	                .filter(p -> p.getName().toUpperCase().charAt(0) == 'M')
 	                .mapToDouble(User::getSalary)
 	                .sum();
-			
-			/*List<Double> listSalaries = list.stream()
-					.filter(p -> p.getName().toUpperCase().charAt(0) == 'M')
-					.map(p -> p.getSalary())
-					.collect(Collectors.toList());*/
-			
-			Double sumOfSalaries2 = list.stream()
-					.filter(p -> p.getName().toUpperCase().charAt(0) == 'M')
-					.map(p -> p.getSalary())
-					.reduce(0.0, (x, y) -> x+y);
-					//.collect(Collectors.toList());
 
-	        System.out.println("Soma dos salários das pessoas com nome começando em M: " + sumOfSalaries2);
 	        System.out.println("Soma dos salários das pessoas com nome começando em M: " + sumOfSalaries);
 			
-			
+			/*Double averageWage = list.stream()
+	                .filter(p -> p.getName().toUpperCase().charAt(0) == 'M')
+	                .mapToDouble(User::getSalary)
+	                .average()
+	                .orElse(0.0);
+
+	        System.out.println("Média Salarial das pessoas com nome começando em M: " + averageWage);
+			*/
 	        
 		} catch (IOException e) {
 			System.out.println("Error " + e.getMessage());

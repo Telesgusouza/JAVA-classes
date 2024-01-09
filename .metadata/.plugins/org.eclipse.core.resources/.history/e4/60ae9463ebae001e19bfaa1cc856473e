@@ -1,0 +1,112 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+import entities.User;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		// D:\PROGRAMACAO\doc.txt
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Entre com o caminho do arquivo: ");
+		String path = sc.nextLine();
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+
+			String line = br.readLine();
+			List<User> list = new ArrayList<User>();
+			
+			while (line != null) {
+				String[] field = line.split(",");
+				User user = new User(field[0], field[1], Double.parseDouble(field[2]));
+				list.add(user);
+				line = br.readLine();
+			}
+			
+			/*
+			 
+			 quero a média salarial das pessoas com nome se inicia em M
+			 
+			 List<User> list = new ArrayList<User>();
+			 
+				Double averageWage = list.stream()
+			 		.filter(p -> p.getName().toUpperCase.charAt(0) == "M")
+			 		.map(p -> p.getSalary())
+			 		.reduce(0.0, (x, y) -> x+y);
+			 		
+			 
+			 
+public class User {
+
+	private String name;
+	private String email;
+	private Double salary;
+	
+	public User(String name, String email, Double salary) {
+		this.name = name;
+		this.email = email;
+		this.salary = salary;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+}
+			  
+			 */
+			
+			/*List<String> justNameWithM = list.stream()
+					.filter(n -> n.getName().charAt(0) == "M")
+					.map(p -> p.getName())
+					.collect(Collectors.toList());*/
+			
+			 // Double averageWage = list.stream()
+			 // .filter(p -> p.getName().toUpperCase.charAt(0) == "M")
+			 // .map(p -> p.getSalary())
+			 // .reduce(0.0, (x, y) -> x+y);
+			
+			Double averageWage = list.stream()
+	                .filter(p -> p.getName().toUpperCase().charAt(0) == 'M')
+	                .mapToDouble(User::getSalary)
+	                .average()
+	                .orElse(0.0);
+
+	        System.out.println("Média Salarial das pessoas com nome começando em M: " + averageWage);
+			
+		} catch (IOException e) {
+			System.out.println("Error " + e.getMessage());
+		}
+		
+		sc.close();
+	}
+
+}
